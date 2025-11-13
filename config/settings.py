@@ -44,12 +44,12 @@ class Settings(BaseSettings):
 
     # ========== FastAPI Configuration ==========
     API_HOST: str = Field(default="0.0.0.0", env="API_HOST")
-    API_PORT: int = Field(default=8000, env="API_PORT")
+    API_PORT: int = Field(default=8001, env="API_PORT")
     API_RELOAD: bool = Field(default=True, env="API_RELOAD")
 
     # ========== CORS Configuration ==========
     CORS_ORIGINS: list[str] = Field(
-        default=["http://localhost:8000", "http://127.0.0.1:8000"],
+        default=["http://localhost:8001", "http://127.0.0.1:8001"],
         env="CORS_ORIGINS"
     )
 
