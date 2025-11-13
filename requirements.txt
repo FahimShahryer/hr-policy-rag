@@ -15,6 +15,7 @@ langchain-text-splitters
 
 # LLM
 google-genai
+google-generativeai
 
 # PDF Processing
 PyPDF2
