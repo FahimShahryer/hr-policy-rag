@@ -1,0 +1,28 @@
+# Web Framework
+fastapi
+uvicorn
+
+# Vector Database with Native Hybrid Search
+pinecone
+pinecone-text
+
+# Embeddings
+sentence-transformers
+
+# Semantic Chunking
+langchain
+langchain-text-splitters
+
+# LLM
+google-genai
+
+# PDF Processing
+PyPDF2
+
+# Configuration
+python-dotenv
+pydantic
+pydantic-settings
+
+# Utilities
+numpy

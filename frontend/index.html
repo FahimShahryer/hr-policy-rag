@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Policy Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Compact Header -->
+        <div class="header">
+            <div class="header-left">
+                <h1>HR Policy Assistant</h1>
+                <div class="status-bar">
+                    <span class="status-indicator" id="statusIndicator">●</span>
+                    <span id="statusText">Connecting...</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <span class="session-info" id="sessionInfo"></span>
+                <button id="settingsToggleBtn" class="icon-btn" title="Settings">⚙️</button>
+            </div>
+        </div>
+
+        <!-- Main Content: Two Column Layout -->
+        <div class="main-content">
+            <!-- Left Sidebar: Example Questions -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h3>📋 Example Questions</h3>
+                    <p class="sidebar-subtitle">Click to use</p>
+                </div>
+                <div class="example-questions">
+                    <div class="example-category">
+                        <h4>Vacation & Leave</h4>
+                        <button class="example-btn" data-question="What is the vacation policy for full-time employees?">
+                            What is the vacation policy for full-time employees?
+                        </button>
+                        <button class="example-btn" data-question="How does sick leave accumulation work?">
+                            How does sick leave accumulation work?
+                        </button>
+                        <button class="example-btn" data-question="What types of leave of absence are available?">
+                            What types of leave of absence are available?
+                        </button>
+                    </div>
+
+                    <div class="example-category">
+                        <h4>Employment Standards</h4>
+                        <button class="example-btn" data-question="What is the probationary period for new employees?">
+                            What is the probationary period for new employees?
+                        </button>
+                        <button class="example-btn" data-question="How is overtime and lieu time handled?">
+                            How is overtime and lieu time handled?
+                        </button>
+                        <button class="example-btn" data-question="What are the statutory holidays observed by the Foundation?">
+                            What are the statutory holidays observed?
+                        </button>
+                    </div>
+
+                    <div class="example-category">
+                        <h4>HR Policies & Ethics</h4>
+                        <button class="example-btn" data-question="What is the Foundation's code of ethics?">
+                            What is the Foundation's code of ethics?
+                        </button>
+                        <button class="example-btn" data-question="What is the harassment-free workplace policy?">
+                            What is the harassment-free workplace policy?
+                        </button>
+                        <button class="example-btn" data-question="How does the Foundation handle conflicts of interest?">
+                            How does the Foundation handle conflicts of interest?
+                        </button>
+                    </div>
+
+                    <div class="example-category">
+                        <h4>Performance & Development</h4>
+                        <button class="example-btn" data-question="How are performance appraisals conducted?">
+                            How are performance appraisals conducted?
+                        </button>
+                        <button class="example-btn" data-question="What is the professional development policy?">
+                            What is the professional development policy?
+                        </button>
+                        <button class="example-btn" data-question="What is the progressive discipline process?">
+                            What is the progressive discipline process?
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Chat Container -->
+            <div class="chat-section">
+                <div class="chat-container" id="chatContainer">
+                    <div class="welcome-message">
+                        <h2>👋 Welcome!</h2>
+                        <p>Click any example question on the left, or type your own question below.</p>
+                        <p class="note">💡 I remember the last 5 questions for context.</p>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <textarea
+                            id="questionInput"
+                            placeholder="Ask a question about HR policies..."
+                            rows="1"
+                        ></textarea>
+                        <button id="sendBtn" class="send-btn" disabled>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="controls">
+                        <button id="clearBtn" class="control-btn" disabled>Clear</button>
+                        <button id="newSessionBtn" class="control-btn">New Session</button>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="memoryToggle" checked>
+                            Memory
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="range" id="topKSlider" min="1" max="10" value="5">
+                            Sources: <span id="topKValue">5</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Panel (Modal) -->
+        <div class="settings-panel" id="settingsPanel" style="display: none;">
+            <div class="settings-content">
+                <div class="settings-header">
+                    <h3>⚙️ Settings</h3>
+                    <button class="close-btn" id="closeSettingsBtn">×</button>
+                </div>
+                <div class="setting-item">
+                    <label for="topKSlider2">Number of sources (top_k): <span id="topKValue2">5</span></label>
+                    <input type="range" id="topKSlider2" min="1" max="10" value="5">
+                </div>
+                <div class="setting-item">
+                    <label>Current Configuration:</label>
+                    <div id="configDisplay" class="config-display">Loading...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
